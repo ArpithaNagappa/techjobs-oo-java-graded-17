@@ -32,6 +32,7 @@ public class JobTest {
     assertEquals(newJob.getCoreCompetency().getValue(),"Persistence");
     assertTrue(newJob.getCoreCompetency()instanceof CoreCompetency);
 
+    // assertTrue(newJob.getCoreCompetency() != null);
 }
 @Test
     public void testJobsForEquality() {
@@ -44,15 +45,15 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
     Job sJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    //String newLine = System.lineSeparator();
+    String newLine = System.lineSeparator();
     String s = sJob.toString();
-    assertEquals(s.charAt(0),'\n');
-    assertEquals(s.charAt(s.length()-1),'\n');
+    assertEquals(s.charAt(0),newLine);
+    assertEquals(s.charAt(s.length()-1),newLine);
  }
 @Test
     public void testToStringContainsCorrectLabelsAndData(){
     Job stringJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String newLine = "\n";
+    String newLine = System.lineSeparator();
     String outPut =  newLine +
             "ID: " + stringJob.getId() + newLine +
             "Name: " + "Product tester" + newLine +
@@ -66,7 +67,7 @@ public class JobTest {
 @Test
     public void testToStringHandlesEmptyField(){
     Job s1Job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String newLine = "\n";
+    String newLine = System.lineSeparator();
     String nullOutput =  newLine +
             "ID: " + s1Job.getId() + newLine +
             "Name: " + "Product tester" + newLine +
@@ -84,8 +85,6 @@ public class JobTest {
     assertEquals(s1Job.toString(),nullOutput);
 
 }
-
-
 
 }
 
