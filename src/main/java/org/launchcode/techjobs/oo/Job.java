@@ -63,7 +63,7 @@ public class Job {
     @Override
     public String toString() {
 
-        String newLine = System.lineSeparator();
+        String newLine = "\n";//System.lineSeparator();
         String sname;
         String semployer;
         String slocation;

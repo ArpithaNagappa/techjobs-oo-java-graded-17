@@ -45,15 +45,15 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
     Job sJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String newLine = System.lineSeparator();
+    //String newLine = "\n";
     String s = sJob.toString();
-    assertEquals(s.charAt(0),newLine);
-    assertEquals(s.charAt(s.length()-1),newLine);
+    assertEquals(s.charAt(0),'\n');
+    assertEquals(s.charAt(s.length()-1),'\n');
  }
 @Test
     public void testToStringContainsCorrectLabelsAndData(){
     Job stringJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String newLine = System.lineSeparator();
+    String newLine = "\n";
     String outPut =  newLine +
             "ID: " + stringJob.getId() + newLine +
             "Name: " + "Product tester" + newLine +
@@ -67,7 +67,7 @@ public class JobTest {
 @Test
     public void testToStringHandlesEmptyField(){
     Job s1Job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String newLine = System.lineSeparator();
+    String newLine = "\n";
     String nullOutput =  newLine +
             "ID: " + s1Job.getId() + newLine +
             "Name: " + "Product tester" + newLine +
